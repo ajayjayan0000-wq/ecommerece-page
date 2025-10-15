@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BurgerSpot — Fresh. Fast. Flavorful.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#ef4444; /* tomato-red */
+      --bg:#0f172a; /* dark navy */
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --glass: rgba(255,255,255,0.04);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:linear-gradient(180deg,var(--bg),#071126);
+      color:#e6eef8;-webkit-font-smoothing:antialiased;
+    }
+    .container{max-width:1100px;margin:30px auto;padding:24px}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff8a65);display:flex;align-items:center;justify-content:center;font-weight:800;color:white;font-size:20px;box-shadow:0 6px 18px rgba(0,0,0,0.4)}
+    nav{display:flex;gap:14px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px}
+    nav a:hover{color:white;background:var(--glass)}
+    .cta{background:linear-gradient(90deg,var(--accent),#ff7a59);padding:10px 16px;border-radius:12px;color:white;font-weight:600;text-decoration:none}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:28px}
+    .hero-left h1{font-size:40px;margin:0 0 12px;line-height:1.03}
+    .hero-left p{color:var(--muted);margin:0 0 18px}
+    .order-btn{display:inline-block;padding:12px 18px;border-radius:12px;background:linear-gradient(90deg,#ffd54a,var(--accent));color:#081122;font-weight:700;text-decoration:none}
+
+    .hero-right{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(0,0,0,0.12));padding:18px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,0.5);}
+    .hero-card{display:flex;gap:12px;align-items:center}
+    .hero-card img{width:110px;height:110px;border-radius:12px;object-fit:cover}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.05);color:var(--muted);font-size:13px}
+
+    /* Menu grid */
+    .section{margin-top:36px}
+    .section h2{margin:0 0 8px}
+    .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .card{background:var(--card);border-radius:14px;padding:12px;box-shadow:0 6px 20px rgba(2,6,23,0.6);}
+    .card img{width:100%;height:160px;object-fit:cover;border-radius:10px}
+    .card h3{margin:10px 0 6px}
+    .price{font-weight:700}
+    .muted{color:var(--muted);font-size:14px}
+    .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+    .add-btn{padding:8px 12px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);cursor:pointer}
+
+    /* Cart */
+    .cart-btn{position:fixed;right:22px;bottom:22px;background:var(--accent);color:white;padding:14px 16px;border-radius:999px;box-shadow:0 8px 30px rgba(239,68,68,0.28);border:none;font-weight:700;cursor:pointer}
+    .cart-panel{position:fixed;right:22px;bottom:80px;width:320px;background:linear-gradient(180deg,#091026,rgba(255,255,255,0.02));padding:12px;border-radius:12px;box-shadow:0 10px 40px rgba(1,5,15,0.7);display:none}
+    .cart-item{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.02)}
+
+    /* Footer */
+    footer{margin-top:48px;padding:20px 0;color:var(--muted);text-align:center}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      .hero-right{order:2}
+      nav{display:none}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">BS</div>
+        <div>
+          <div style="font-weight:800;font-size:14px">BurgerSpot</div>
+          <div style="font-size:12px;color:var(--muted)">Fresh. Fast. Flavorful.</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#menu">Order Now</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-left">
+          <div class="badge">Open • Delivery 11:00 — 23:00</div>
+          <h1>Handcrafted burgers with bold flavor.</h1>
+          <p>Locally sourced patties, toasted brioche buns, and sauces made in-house. Fast pickup and delivery.</p>
+          <div style="display:flex;gap:12px;margin-top:12px;align-items:center">
+            <a class="order-btn" href="#menu">Explore Menu</a>
+            <a style="color:var(--muted);text-decoration:none;font-weight:600" href="#contact">Reserve a table</a>
+          </div>
+        </div>
+
+        <aside class="hero-right">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <strong>Chef's pick — The Flame Stack</strong>
+            <span class="muted">Rs. 499</span>
+          </div>
+          <div class="hero-card">
+            <img src="https://images.unsplash.com/photo-1604908177142-0e8a8a3e8b9b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=2c8f1b2fb2f4f5fa3c4b6a3e6a3a2f5a" alt="Burger" />
+            <div>
+              <div style="font-weight:700">Flame Stack</div>
+              <div class="muted" style="font-size:13px;margin-top:6px">Double beef, smoked cheddar, caramelized onions, house sauce</div>
+              <div style="margin-top:10px;font-weight:700">Ready in 12–15 mins</div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section" id="menu">
+        <h2>Our Menu</h2>
+        <p class="muted">Burgers • Sides • Shakes</p>
+        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+          <button class="add-btn" onclick="filterMenu('all')">All</button>
+          <button class="add-btn" onclick="filterMenu('beef')">Beef</button>
+          <button class="add-btn" onclick="filterMenu('chicken')">Chicken</button>
+          <button class="add-btn" onclick="filterMenu('veggie')">Veggie</button>
+          <button class="add-btn" onclick="filterMenu('sides')">Sides</button>
+        </div>
+
+        <div class="menu-grid" style="margin-top:18px" id="menuGrid">
+
+          <!-- Card 1 -->
+          <article class="card" data-category="beef">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=3b1b2b5c5f7d6e0b8d6a7b3b2c9a" alt="Classic Beef Burger">
+            <h3>Classic Beef</h3>
+            <div class="muted">Lettuce, tomato, pickles, secret sauce</div>
+            <div class="row" style="margin-top:10px">
+              <div class="price">Rs. 299</div>
+              <button class="add-btn" onclick="addToCart('Classic Beef',299)">Add</button>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="card" data-category="beef">
+            <img src="https://images.unsplash.com/photo-1612872021371-b9d1f6c9f9a8?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=7b2c6d1b9d2f4c6e8a9c2a1b0c3d" alt="Flame Stack">
+            <h3>Flame Stack</h3>
+            <div class="muted">Double patty, smoked cheddar, chipotle mayo</div>
+            <div class="row" style="margin-top:10px">
+              <div class="price">Rs. 499</div>
+              <button class="add-btn" onclick="addToCart('Flame Stack',499)">Add</button>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="card" data-category="chicken">
+            <img src="https://images.unsplash.com/photo-1604908177193-b3a3f0c6c6a0?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=3a4b5c6d7e8f9a0b1c2d3e4f5a6b" alt="Crispy Chicken Burger">
+            <h3>Crispy Chicken</h3>
+            <div class="muted">Buttermilk fried chicken, slaw, garlic aioli</div>
+            <div class="row" style="margin-top:10px">
+              <div class="price">Rs. 349</div>
+              <button class="add-btn" onclick="addToCart('Crispy Chicken',349)">Add</button>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="card" data-category="veggie">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=1a2b3c4d5e6f7a8b9c0d1e2f3a4b" alt="Veggie Burger">
+            <h3>Green Garden (Veg)</h3>
+            <div class="muted">Grilled patty, avocado, herbed mayo</div>
+            <div class="row" style="margin-top:10px">
+              <div class="price">Rs. 279</div>
+              <button class="add-btn" onclick="addToCart('Green Garden',279)">Add</button>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="card" data-category="sides">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=9b8a7d6c5e4f3b2a1c0d9e8f7a6b">
+            <h3>Fries — Classic</h3>
+            <div class="muted">Crispy salted fries — small/large</div>
+            <div class="row" style="margin-top:10px">
+              <div class="price">Rs. 149</div>
+              <button class="add-btn" onclick="addToCart('Fries - Classic',149)">Add</button>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="card" data-category="sides">
+            <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=0a1b2c3d4e5f6a7b8c9d0e1f2a3b">
+            <h3>Milkshake — Chocolate</h3>
+            <div class="muted">Thick, creamy — topped with whipped cream</div>
+            <div class="row" style="margin-top:10px">
+              <div class="price">Rs. 199</div>
+              <button class="add-btn" onclick="addToCart('Chocolate Shake',199)">Add</button>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <h2>About Us</h2>
+        <p class="muted">Born from a love of bold flavors and weekend grill-outs. We focus on high-quality ingredients, simple recipes executed well, and speedy service.</p>
+      </section>
+
+      <section class="section" id="contact">
+        <h2>Contact & Location</h2>
+        <p class="muted">Reserve, feedback or catering — drop us a line.</p>
+        <form onsubmit="event.preventDefault(); alert('Thanks! We\'ll get back to you.');" style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <input required placeholder="Your name" style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:white" />
+          <input required placeholder="Phone or email" style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:white" />
+          <textarea required placeholder="Message" style="grid-column:1 / -1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:white"></textarea>
+          <button style="grid-column:1 / -1;padding:12px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#ff7a59);border:none;color:white">Send Message</button>
+        </form>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> BurgerSpot • Built with ❤️</div>
+    </footer>
+  </div>
+
+  <button class="cart-btn" id="cartBtn">Cart (0)</button>
+  <div class="cart-panel" id="cartPanel">
+    <h3>Your Order</h3>
+    <div id="cartList" style="max-height:320px;overflow:auto;margin-top:8px"></div>
+    <div style="display:flex;justify-content:space-between;padding-top:10px;font-weight:700">
+      <div>Total</div>
+      <div id="cartTotal">Rs. 0</div>
+    </div>
+    <button onclick="checkout()" style="margin-top:10px;width:100%;padding:10px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#ff7a59);color:white;border:none">Checkout</button>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple cart logic
+    const cart = [];
+    function addToCart(name, price){
+      const found = cart.find(i=>i.name===name);
+      if(found) found.qty++;
+      else cart.push({name,price,qty:1});
+      renderCart();
+    }
+    function renderCart(){
+      const list = document.getElementById('cartList');
+      list.innerHTML='';
+      let total=0, count=0;
+      cart.forEach((it,idx)=>{
+        total += it.price * it.qty; count += it.qty;
+        const div = document.createElement('div');
+        div.className='cart-item';
+        div.innerHTML = `\n          <div style="flex:1">\n            <div style=\"font-weight:700\">${it.name}</div>\n            <div class=\"muted\">Rs. ${it.price} × ${it.qty}</div>\n          </div>\n          <div style=\"display:flex;flex-direction:column;gap:6px\">\n            <button onclick=\"changeQty(${idx},1)\" class=\"add-btn\">+</button>\n            <button onclick=\"changeQty(${idx},-1)\" class=\"add-btn\">−</button>\n          </div>`;
+        list.appendChild(div);
+      });
+      document.getElementById('cartTotal').textContent = 'Rs. ' + total;
+      document.getElementById('cartBtn').textContent = `Cart (${count})`;
+    }
+    function changeQty(i,delta){
+      cart[i].qty += delta;
+      if(cart[i].qty<=0) cart.splice(i,1);
+      renderCart();
+    }
+    function checkout(){
+      if(cart.length===0){alert('Cart is empty');return}
+      alert('Thanks — order placed! (this is a demo)');
+      cart.length=0;renderCart();toggleCart();
+    }
+
+    // Cart panel toggle
+    const cartBtn = document.getElementById('cartBtn');
+    const cartPanel = document.getElementById('cartPanel');
+    cartBtn.addEventListener('click',()=>{toggleCart()});
+    function toggleCart(){
+      cartPanel.style.display = cartPanel.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Menu filtering
+    function filterMenu(cat){
+      const cards = document.querySelectorAll('#menuGrid .card');
+      cards.forEach(c=>{
+        if(cat==='all' || c.dataset.category===cat) c.style.display='block';
+        else c.style.display='none';
+      })
+    }
+
+    // small nicety: keyboard shortcut C toggles cart
